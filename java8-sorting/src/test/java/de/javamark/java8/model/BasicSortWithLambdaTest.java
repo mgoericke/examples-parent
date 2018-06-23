@@ -9,7 +9,6 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 
-
 public class BasicSortWithLambdaTest {
 
     @Test
@@ -28,7 +27,7 @@ public class BasicSortWithLambdaTest {
     }
 
     @Test
-    public void givenLambdaShortForm_whenSortByName_ResultShouldBeSortedCorrectly(){
+    public void givenLambdaShortForm_whenSortByName_ResultShouldBeSortedCorrectly() {
 
         List<Student> students = Arrays.asList(
                 new Student("Max", 23),
@@ -40,5 +39,24 @@ public class BasicSortWithLambdaTest {
         students.sort((s1, s2) -> s1.getName().compareTo(s2.getName()));
 
         assertThat(students.get(0).getName(), equalTo("Emma"));
+    }
+
+    @Test
+    public void givenStaticMethod_compareByNameThenByAge_shouldSortCorrectly() {
+
+        List<Student> students = Arrays.asList(
+                new Student("Max", 23),
+                new Student("Emma", 21),
+                new Student("Emma", 19),
+                new Student("Klaus", 20)
+        );
+
+        // sort with static method
+        students.sort(Student::compareByNameThenByAge);
+
+        assertThat(students.get(0).getName(), equalTo("Emma"));
+        assertThat(students.get(0).getAge(), equalTo(19));
+
+
     }
 }

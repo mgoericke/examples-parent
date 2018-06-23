@@ -16,4 +16,21 @@ public class Student {
     public Integer getAge() {
         return age;
     }
+
+    /**
+     * compare left hand side with right hand side object:
+     * used for comparision of objects:
+     *  * sort by name
+     *  * then sort by age
+     * @param lhs
+     * @param rhs
+     * @return
+     */
+    public static int compareByNameThenByAge(Student lhs, Student rhs){
+        if(lhs.name.equals(rhs.name)) {
+            return lhs.age - rhs.age;
+        } else {
+            return lhs.name.compareTo(rhs.name);
+        }
+    }
 }
