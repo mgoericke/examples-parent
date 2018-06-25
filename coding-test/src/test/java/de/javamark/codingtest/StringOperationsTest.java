@@ -8,11 +8,13 @@ import static org.junit.Assert.*;
 public class StringOperationsTest {
 
     @Test
-    public void capitalizeFirstCharacter() {
-
+    public void firstCharacterShouldBeUpperCaseTheRestOfTheStringRemainTheSame() {
         // test the whole string
         assertThat(StringOperations.capitalizeFirstCharacter("lower"), equalTo("Lower"));
+    }
 
+    @Test
+    public void firstCharacterShouldBeUpperCase() {
         // test the first character
         assertThat(StringOperations.capitalizeFirstCharacter("lower").charAt(0), equalTo('L'));
     }
