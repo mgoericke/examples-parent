@@ -9,6 +9,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProductServiceSpec {
@@ -25,8 +26,13 @@ public class ProductServiceSpec {
     @Test
     public void givenProductExists_serviceShouldBeAbleToFindTheProduct() {
 
+        // given
         given(productRepository.findByName("Sweeties")).willReturn(new Product("Sweeties", 1.99));
 
+        // then ...
         Assert.assertEquals(productService.getProduct("Sweeties").getName(), "Sweeties");
+
+        // verify (mock).method was invoked
+        verify(productRepository).findByName("Sweeties");
     }
 }
