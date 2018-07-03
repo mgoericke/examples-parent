@@ -11,6 +11,7 @@
     <modules>
         <module>java8-sorting</module>
         <module>coding-test</module>
+        <module>bdd-testing</module>
     </modules>
 
     <properties>
